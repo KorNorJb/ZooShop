@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+/* Specify box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove internal padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove external padding */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set the default basic settings for body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+
+/* Remove standard styling for all uls and ils that have a class attribute*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Elements a that do not have a class are reset to default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Simplify working with images */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Indicate a clear periodicity in the data stream of the article */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people who prefer not to use them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+[class*=__container] {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+body {
+  background: #eee;
+}
+
+.courier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #ffff5c;
+  text-align: center;
+  height: 70px;
+  font-size: 25px;
+}
+
+.main__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main__container form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 350px;
+  height: 200px;
+  gap: 10px;
+  border: 1px solid black;
+}
+.main__container form .total__status {
+  border-radius: 20px;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: auto;
+}
+
+.background {
+    width: 100%;
+    min-height: 100vh;
+    background: #f7d6b2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.errorText {
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 20px;
+    padding-bottom: 50px;
+}
+
+.errorText>a {
+    background: black;
+    padding: 20px 40px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}

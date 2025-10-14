@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+/* Specify box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove internal padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove external padding */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set the default basic settings for body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+
+/* Remove standard styling for all uls and ils that have a class attribute*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Elements a that do not have a class are reset to default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Simplify working with images */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Indicate a clear periodicity in the data stream of the article */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people who prefer not to use them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+* {
+  cursor: url("../../pages/img/cursor.png"), auto;
+}
+
+[class*=__container] {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+h1,
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-style: italic;
+}
+
+p {
+  text-indent: 10px;
+}
+
+.header {
+  height: 120px;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding-top: 15px;
+}
+.header__container img {
+  width: 120px;
+}
+
+.header__menu .menu__list {
+  display: flex;
+  gap: 60px;
+}
+.header__menu .menu__list li .menu__links {
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  transition: all 0.5s ease-out;
+}
+.header__menu .menu__list li .menu__links:hover {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+
+.header__search {
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  align-items: center;
+}
+.header__search .search-icon {
+  position: absolute;
+  padding-left: 5px;
+}
+.header__search .search__input {
+  width: 20em;
+  padding-left: 30px;
+  border-radius: 20px;
+  border: gray 1px solid;
+  padding: 5px 0 5px 30px;
+}
+
+.header__buttons {
+  display: flex;
+  gap: 30px;
+}
+.header__buttons .button__signIn {
+  text-decoration: none;
+  color: #362f27;
+  font-size: 18px;
+  border: #362f27 2px solid;
+  border-radius: 25px;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+}
+.header__buttons .button__signIn:hover {
+  background: #ffff5c;
+  color: black;
+}
+.header__buttons .button__signUp {
+  text-decoration: none;
+  color: #362f27;
+  font-size: 18px;
+  border: #362f27 2px solid;
+  border-radius: 25px;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+}
+.header__buttons .button__signUp:hover {
+  background: #ffff5c;
+  color: black;
+}
+
+.footer {
+  background: black;
+  height: 350px;
+  z-index: -999;
+}
+
+.footer__container .mainFooter__container {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  background: #ffff5c;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 260px;
+}
+.footer__container .mainFooter__container nav {
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+}
+.footer__container .mainFooter__container nav h2 {
+  margin-right: 10px;
+}
+.footer__container .mainFooter__container nav ul {
+  padding: 0;
+  margin: 0;
+}
+.footer__container .mainFooter__container nav ul li {
+  list-style-type: none;
+}
+.footer__container .mainFooter__container nav ul li a {
+  cursor: pointer;
+  position: relative;
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+.footer__container .mainFooter__container nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.3s ease;
+}
+.footer__container .mainFooter__container nav ul li a:hover::after {
+  transform: scaleX(1);
+}
+.footer__container .mainFooter__container .footer__questions {
+  display: flex;
+  flex-direction: row;
+}
+.footer__container .mainFooter__container .footer__questions form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.footer__container .mainFooter__container .footer__questions form textarea {
+  resize: none;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.footer__container .mainFooter__container .footer__questions form textarea:focus {
+  border-color: black;
+}
+.footer__container .mainFooter__container .footer__questions form textarea:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+.footer__container .mainFooter__container .footer__questions form button {
+  border: 1px solid black;
+  border-radius: 10px;
+  background: #000;
+  color: white;
+  transition: all 0.3s ease-in;
+}
+.footer__container .mainFooter__container .footer__questions form button:hover {
+  color: #fffc00;
+  cursor: pointer;
+}
+.footer__container .FooterOtherInfo__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer__container .FooterOtherInfo__container .footer__PaymentMethods {
+  display: flex;
+  gap: 20px;
+}
+.footer__container .FooterOtherInfo__container .footer__Rights {
+  color: white;
+}
+.footer__container .FooterOtherInfo__container .footer__SocialMedia {
+  display: flex;
+  gap: 20px;
+}/*# sourceMappingURL=style.css.map */

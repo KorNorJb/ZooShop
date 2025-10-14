@@ -1,0 +1,572 @@
+// ! Variables
+@import "../_variables.scss";
+// !Default settings
+@import "../_global.scss";
+* {
+    cursor: url("../../pages/img/cursor.png"), auto;
+}
+
+[class*="__container"] {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+body {
+    background: #eee;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+// !Profile modal window
+.Profile__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    .show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .modal {
+        background: white;
+        width: 30vw;
+        height: 30vw;
+        border-radius: 15px;
+        text-align: center;
+        padding-top: 20px;
+        user-select: none;
+        z-index: 99;
+        h1 {
+            padding-bottom: 10px;
+        }
+        .modal__content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            img {
+                max-width: 100%;
+                /* Чтобы изображение не выходило за пределы блока */
+            }
+        }
+        .modal__inf {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Чтобы параграфы выравнивались слева */
+            margin-top: 10px;
+            /* Пространство между изображением и информацией */
+            p {
+                margin: 5px 0;
+                position: relative;
+                a {
+                    img {
+                        width: 15px;
+                        position: absolute;
+                        /* Абсолютное позиционирование */
+                        top: 50%;
+                        /* Располагаем изображение по вертикали по центру */
+                        transform: translateY( -50%);
+                        /* Корректируем позицию изображения по вертикали */
+                        right: -20px;
+                        /* Располагаем изображение справа */
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        img {
+            width: 180px;
+        }
+    }
+}
+
+// !Authorization modal window
+.Authmodal__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    .show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .modal {
+        background: white;
+        width: 30vw;
+        height: 30vw;
+        border-radius: 15px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        padding-top: 20px;
+        user-select: none;
+        z-index: 99;
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 0 30px 0 30px;
+            input {
+                width: 350px;
+                height: 55px;
+                padding-left: 10px;
+                border-radius: 7px;
+                border: none;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            }
+            button {
+                width: 200px;
+                height: 51px;
+                background: rgba(255, 255, 0, 0.7);
+                border: none;
+                border-radius: 10px;
+                box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+                transition: all 0.5s ease-in-out;
+                font-size: 20px;
+                font-weight: bold;
+                &:hover {
+                    background: #fffc00;
+                }
+            }
+        }
+    }
+}
+
+// !Modal registration window
+.Regmodal__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    .show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .modal {
+        background: white;
+        width: 30vw;
+        height: 37vw;
+        border-radius: 15px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding-top: 20px;
+        user-select: none;
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 0 30px 0 30px;
+            input {
+                width: 350px;
+                height: 44px;
+                padding-left: 10px;
+                border-radius: 7px;
+                border: none;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            }
+            button {
+                width: 200px;
+                height: 51px;
+                background: rgba(255, 255, 0, 0.7);
+                border: none;
+                border-radius: 10px;
+                box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+                transition: all 0.5s ease-in-out;
+                font-size: 20px;
+                font-weight: bold;
+                &:hover {
+                    background: #fffc00;
+                }
+            }
+        }
+    }
+}
+
+.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+// ! Header
+.header {
+    height: 580px;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding-top: 15px;
+    img {
+        width: 120px;
+    }
+}
+
+// ? NavBar
+.header__menu {
+    .menu__list {
+        display: flex;
+        gap: 60px;
+        li {
+            .menu__links {
+                font-size: 18px;
+                text-decoration: none;
+                color: black;
+                transition: all 0.5s ease-out;
+            }
+            .menu__links:hover {
+                text-decoration: underline;
+                text-underline-offset: 10px;
+            }
+        }
+    }
+}
+
+.header__logo {
+    img {
+        cursor: pointer;
+    }
+}
+
+// todo Search Bar
+.header__search {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    .search-icon {
+        position: absolute;
+        padding-left: 5px;
+    }
+    .search__input {
+        width: 20em;
+        padding-left: 30px;
+        border-radius: 20px;
+        border: gray 1px solid;
+        padding: 5px 0 5px 30px;
+        background: #eee;
+    }
+}
+
+// Todo Styles for login and register buttons
+.header__buttons {
+    display: flex;
+    gap: 30px;
+    .button__signIn {
+        text-decoration: none;
+        color: #362f27;
+        font-size: 18px;
+        border: #362f27 2px solid;
+        border-radius: 25px;
+        padding: 5px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            background: #ffff5c;
+            color: black;
+        }
+    }
+    .button__signUp {
+        text-decoration: none;
+        color: #362f27;
+        font-size: 18px;
+        border: #362f27 2px solid;
+        border-radius: 25px;
+        padding: 5px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            background: #ffff5c;
+            color: black;
+        }
+    }
+}
+
+// ? Main head content
+.mainScreen {
+    .mainScreen__container {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+.mainScreen__text {
+    padding-top: 120px;
+}
+
+.mainScreen__title {
+    font-weight: normal;
+    line-height: 54px;
+    margin-left: 10px;
+    .mainScreen_keyword {
+        background: #ffff5c;
+        border-radius: 10px;
+    }
+    .mainScreen__animals {
+        border: 2px solid black;
+        padding: 2px;
+        border-radius: 10px;
+    }
+}
+
+// ! Main
+.main__section {
+    text-align: center;
+    padding-top: 30px;
+}
+
+// ?Section with popular categories
+.main__categories {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .categories__list {
+        // padding-top: 160px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 100px;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        .list__element {
+            background: rgba(255, 255, 0, 0.3);
+            backdrop-filter: blur(10px);
+            width: 215px;
+            height: 300px;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+            &:hover {
+                background: #fffc00;
+            }
+            img {
+                width: 100px;
+            }
+            p {
+                padding-top: 10px;
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+// ?Companies
+.companies__container {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.companies__list {
+    height: 250px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    li {
+        img {
+            width: 110px;
+        }
+    }
+}
+
+// ?Our History
+.history__container {
+    text-align: center;
+}
+
+.history__block {
+    height: 500px;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    p {
+        width: 500px;
+        text-indent: 30px;
+        text-align: left;
+    }
+    img {
+        width: 500px;
+        border-radius: 5px;
+    }
+}
+
+// ! Footer
+.footer {
+    background: black;
+    height: 350px;
+    z-index: -999;
+}
+
+.footer__container {
+    .mainFooter__container {
+        display: flex;
+        justify-content: space-around;
+        padding: 30px;
+        background: #ffff5c;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        height: 260px;
+        nav {
+            display: flex;
+            align-items: baseline;
+            flex-direction: column;
+            h2 {
+                margin-right: 10px;
+            }
+            ul {
+                padding: 0;
+                margin: 0;
+                li {
+                    list-style-type: none;
+                    a {
+                        cursor: pointer;
+                        position: relative;
+                        color: black;
+                        text-decoration: none;
+                        font-size: 20px;
+                        transition: color 0.3s ease;
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            bottom: -3px;
+                            width: 100%;
+                            height: 2px;
+                            background-color: black;
+                            transform: scaleX(0);
+                            transform-origin: bottom left;
+                            transition: transform 0.3s ease;
+                        }
+                        &:hover::after {
+                            transform: scaleX(1);
+                        }
+                    }
+                }
+            }
+        }
+        .footer__questions {
+            display: flex;
+            flex-direction: row;
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                textarea {
+                    resize: none;
+                    padding: 10px;
+                    font-size: 16px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    outline: none;
+                    transition: border-color 0.3s ease;
+                    &:focus {
+                        border-color: black;
+                    }
+                    &:disabled {
+                        background-color: #f0f0f0;
+                        cursor: not-allowed;
+                    }
+                }
+                button {
+                    border: 1px solid black;
+                    border-radius: 10px;
+                    background: #000;
+                    color: white;
+                    transition: all 0.3s ease-in;
+                    &:hover {
+                        color: #fffc00;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    .FooterOtherInfo__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .footer__PaymentMethods {
+            display: flex;
+            gap: 20px;
+        }
+        .footer__Rights {
+            color: white;
+        }
+        .footer__SocialMedia {
+            display: flex;
+            gap: 20px;
+        }
+    }
+}
+
+// ! Media Request
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ! META TAGS    -->
+    <!-- Todo Page Configuration -->
+    <!-- ? Page encoding -->
+    <meta charset="UTF-8">
+    <!-- ? Adaptability -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- ? Disabling link generation for a phone number on iOS -->
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Todo SEO -->
+    <!-- ? Description of the page -->
+    <meta name="description" content="">
+    <!-- ? Page Keywords -->
+    <meta name="keywords" content="">
+
+
+    <!-- Todo Other Information -->
+    <!-- ? Author of the page -->
+    <meta name="Author" content="Igantovskiy Dmitriy Valerievich">
+    <!-- ? Copyright -->
+    <meta name="Copyright" content="Igantovskiy Dmitriy Valerievich">
+    <!-- ? Author's address -->
+    <meta name="Address" content="Tairova 27">
+
+
+
+    <!-- !LINKS -->
+
+    <!-- ? Other -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- todo Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+
+    <!-- ? Styles -->
+    <link rel="stylesheet" href="../styles/OrdersForCouriersPage/style.css">
+
+    <!-- ? Page icon -->
+    <link rel="shortcut icon" href="../pages/img/HomePage/Header/Navbar/Logo.png">
+
+    <!-- ? Page title -->
+    <title>Orders</title>
+</head>
+
+<body>
+    <!-- ! Header -->
+    <header>
+        <div class="courier">Courier Panel</div>
+    </header>
+    <main>
+
+        <div class="main__container">
+            <% if (data) { %>
+                <% data.forEach(order => { %>
+                    <form class="order-form" data-id="<%= order._id %>" action="/courierpanel" method="post">
+                        <p class="name__order">
+                            Order number:
+                            <%= order.order_number %>
+                        </p>
+                        <p class="total__order">
+                            Order amount:
+                            <%= order.total %>
+                        </p>
+                        <p class="total__status" ">
+                            Order status:
+                            <%= order.status %>
+                        </p>
+                        <button class="get__btn " type="submit " data-id="<%=order._id %>">Get</button>
+                    </form>
+                    <% }) %>
+                        <% } %>
+        </div>
+
+
+    </main>
+    <script src="../scripts/ordersforcouriers.js"></script>
+</body>
+
+</html>

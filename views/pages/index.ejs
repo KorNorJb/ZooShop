@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ! META TAGS    -->
+    <!-- Todo Page Configuration -->
+    <!-- ? Page encoding -->
+    <meta charset="UTF-8">
+    <!-- ? Adaptability -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- ? Disabling link generation for a phone number on iOS -->
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Todo SEO -->
+    <!-- ? Description of the page -->
+    <meta name="description" content="">
+    <!-- ? Page Keywords -->
+    <meta name="keywords" content="">
+
+
+    <!-- Todo Other Information -->
+    <!-- ? Author of the page -->
+    <meta name="Author" content="Igantovskiy Dmitriy Valerievich">
+    <!-- ? Copyright -->
+    <meta name="Copyright" content="Igantovskiy Dmitriy Valerievich">
+    <!-- ? Author's address -->
+    <meta name="Address" content="Tairova 27">
+
+
+
+    <!-- !LINKS -->
+
+    <!-- ? Other -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- todo Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+
+    <!-- ? Styles -->
+    <link rel="stylesheet" href="../styles/HomePage/style.css">
+
+    <!-- ? Page icon -->
+    <link rel="shortcut icon" href="../pages/img/HomePage/Header/Navbar/Logo.png">
+
+    <!-- ? Page title -->
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <title>Animals Kingdom</title>
+</head>
+
+<body>
+
+    <!-- ! Primary colors: black, white, yellow. -->
+    <!-- !Modal window -->
+    <!-- todo Profile Modal -->
+    <div class="Profile__block">
+        <div class="modal">
+            <h1>Profile</h1>
+            <div class="modal__content">
+                <img src="../pages/img/HomePage/Header/cat.jpeg" alt="">
+                <div class="modal__inf">
+                    <form action="/" method="POST">
+                        <p class="username">Username: Krisanto</p>
+                        <p class="phone">Phone: 77774654524</p>
+                        <p class="email">Email: yiwiyi3173@adrais.com</p>
+                        <button type="submit" class="logOut">Log out</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- todo Auth Modal Window -->
+    <div class="Authmodal__block">
+        <div class="modal">
+            <h1>Authorization</h1>
+            <form action="/authorization" method="POST">
+                <!-- ?Username -->
+                <input type="text" class="form__username" id="username" name="username" placeholder="Login" required>
+                <!-- ?Password -->
+                <input type="password" class="form__password" id="password" name="Authpassword" placeholder="Password" required>
+                <!-- ?Button to send a request to the database -->
+                <button type="submit" class="form__btn" href="/authorization">Log in</button>
+                <p class="form__create">You don't have an account? <a class="DontHave" href="/">Create one!</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- todo Reg Modal Window -->
+    <div class="Regmodal__block">
+        <div class="modal">
+            <h1>Registration</h1>
+            <form id="asd" action="/registration" method="POST">
+                <!-- ?Username -->
+                <input type="text" class="form__username" id="username" name="reg__username" placeholder="Login">
+                <!-- ?Password -->
+                <input type="password" class="form__password" id="password" name="reg__password" placeholder="Password">
+                <!-- ?Email -->
+                <input type="email" class="form__username" id="email" name="reg__Email" placeholder="Email">
+                <!-- ?Phone Number -->
+                <input type="tel" class="form__password" id="password" name="reg__phone" placeholder="Phone number">
+                <!-- ?Button to send a request to the database -->
+                <button type="submit" class="form__btn" id="#forms" href="/registration">Sign Up</button>
+                <p class="form__create">Do you already have an account? <a class="alredyHave" href="/">Log in!</a></p>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="wrapper">
+        <!-- ! Header -->
+        <header>
+            <div class="header">
+                <div class="header__container">
+                    <!-- TODO LOGO -->
+                    <a href="/" class="header__logo">
+                        <img src="../pages/img/HomePage/Header/Navbar/Logo.png" alt="">
+                    </a>
+
+                    <!-- todo Search bar -->
+                    <form action="">
+                        <div class="header__search">
+                            <span class="search-icon material-symbols-outlined">search</span>
+                            <input type="search" class="search__input" placeholder="Search...">
+                        </div>
+                    </form>
+                    <!-- TODO Header Buttons -->
+                    <div class="header__buttons">
+                        <% if (accessToken) { %>
+                            <div id="profileIcon">
+                                <a href="" class="btnProf"><img src="../pages/img/HomePage/Header/Navbar/user.png" alt="Profile Icon" class="profileImage" style="width: 50px; cursor: pointer;"></a>
+                            </div>
+                            <% } else { %>
+                                <div class="header__buttons">
+                                    <a href="" class="button__signIn">Sign In</a>
+                                    <a href="" class="button__signUp"> Sign Up</a>
+                                </div>
+                                <% } %>
+                    </div>
+                </div>
+                <!-- ? Main head content -->
+                <!-- todo Main information -->
+                <div class="mainScreen">
+                    <div class="mainScreen__container">
+                        <div class="mainScreen__text">
+                            <h1 class="mainScreen__title">Balanced <span class="mainScreen_keyword">nutrition</span>, <br> <span class="mainScreen_keyword">toys</span> and <span class="mainScreen_keyword">accessories</span> <br> for <span class="mainScreen__animals">animals</span></h1>
+                        </div>
+                        <div class="mainScreen__photo">
+                            <img src="../pages/img/hug.png" alt="">
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+    </div>
+    </header>
+    <!-- ! Main -->
+    <main>
+        <div class="main">
+            <div class="main__container">
+
+                <!-- ?Section with popular categories -->
+                <section class="main__section">
+                    <h2>TOP CATEGORIES</h2>
+                    <div class="main__categories">
+                        <div class="categories__container">
+                            <div class="categories__list">
+
+                                <!-- ?Category elements. No more than 5 -->
+                                <!-- ?The size of the icon for the card: 128x128 -->
+                                <a href="/catalog">
+                                    <div class="list__element pastel-pink">
+                                        <img src="../pages/img/dog.png" alt="">
+                                        <p>Dogs</p>
+                                    </div>
+                                </a>
+                                <a href="/catalog">
+                                    <div class="list__element pastel-green">
+                                        <img src="../pages/img/cat.png" alt="">
+                                        <p>Cats</p>
+                                    </div>
+                                </a>
+                                <a href="/catalog">
+                                    <div class="list__element pastel-pink">
+                                        <img src="../pages/img/fish.png" alt="">
+                                        <p>Fish</p>
+                                    </div>
+                                </a>
+                                <a href="/catalog">
+                                    <div class="list__element pastel-blue">
+                                        <img src="../pages/img/other.png" alt="">
+                                        <p>Other</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ?Companies -->
+                <section class="companies__container">
+                    <h2>Companies</h2>
+                    <ul class="companies__list">
+                        <li class="company ">
+                            <a href="https://www.fitmin.com" target="_blank"><img src="../pages/img/Companies/fitmin.png" alt=""></a>
+                        </li>
+                        <li class="company ">
+                            <a href="https://www.hillspet.com" target="_blank"><img src="../pages/img/Companies/hills.png" alt=""></a>
+                        </li>
+                        <li class="company ">
+                            <a href="https://www.monge.it" target="_blank"><img src="../pages/img/Companies/monge.png" alt=""></a>
+                        </li>
+                        <li class="company ">
+                            <a href="https://optimeal.com" target="_blank"><img src="../pages/img/Companies/optimeal.png" alt=""></a>
+                        </li>
+                        <li class="company ">
+                            <a href="https://www.orijenpetfoods.com/en-US/homepage" target="_blank"><img src="../pages/img/Companies/orijen.png" alt=""></a>
+                        </li>
+                        <li class="company ">
+                            <a href="https://www.purina.com/pro-plan" target="_blank"><img src="../pages/img/Companies/proplan.png" alt=""></a>
+                        </li>
+                        <li class="company ">
+                            <a href="https://www.titbit.ru" target="_blank"><img src="../pages/img/Companies/titbit.png" alt=""></a>
+                        </li>
+                    </ul>
+                </section>
+                <!-- ?Our History -->
+                <section class="history__container">
+                    <h2>History</h2>
+                    <div class="history__block">
+                        <img src="../pages/img/interior.png" alt="">
+                        <div class="history__text">
+                            <p>When a group of friends full of love for animals found it difficult to find quality and healthy food for their pets, they decided to take action. Inspired by their experience, they created a pet store specializing exclusively
+                                in holistic nutrition.</p>
+                            <p>Our store is the result of our personal search for the best suppliers who share our beliefs in the importance of natural and quality nutrition. We are committed to helping you improve the health and well-being of your pets
+                                by offering only the best holistic products on the market... <br><a href="/history" style="cursor: pointer;">Read more</a></p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- ! Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="mainFooter__container">
+                <nav>
+                    <h2>Navigation</h2>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Catalog</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="/privacy">Privacy policy</a></li>
+                    </ul>
+                </nav>
+                <div class="footer__questions">
+                    <form action="">
+                        <h2>Still have questions?</h2>
+                        <textarea name="" id="" cols="20" rows="4" placeholder="Enter your question here"></textarea>
+                        <button>Send</button>
+                    </form>
+                </div>
+            </div>
+            <div class="FooterOtherInfo__container">
+                <div class="footer__PaymentMethods">
+                    <!-- Todo Pictures must be 64x64 in size -->
+                    <img src="../pages/img/PaymentsMethode/Visa.png" alt="">
+                    <img src="../pages/img/PaymentsMethode/MasterCard.png" alt="">
+                </div>
+                <div class="footer__Rights">
+                    <p><a href="" style="cursor: pointer;">Privacy Policy</a> © 2024 Animals Kingdom. All Rights Reserved.</p>
+                </div>
+                <div class="footer__SocialMedia">
+                    <img src="../pages/img/SocialMedia/inst.png" alt="">
+                    <img src="../pages/img/SocialMedia/whatsapp.png" alt="">
+                    <img src="../pages/img/SocialMedia/teleg.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- ! Scripts -->
+    <script type="module" src="../scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+<!-- ? Navbar
+<nav>
+    <div class="header__menu menu">
+        <ul class="menu__list">
+            <li class="menu__item"><a href="" class="menu__links">Dogs</a></li>
+            <li class="menu__item"><a href="" class="menu__links">Cats</a></li>
+            <li class="menu__item"><a href="" class="menu__links">Other</a></li>
+        </ul>
+
+    </div>
+</nav> -->

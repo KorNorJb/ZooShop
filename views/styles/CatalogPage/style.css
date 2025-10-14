@@ -1,0 +1,606 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+/* Specify box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove internal padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove external padding */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set the default basic settings for body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+
+/* Remove standard styling for all uls and ils that have a class attribute*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Elements a that do not have a class are reset to default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Simplify working with images */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Indicate a clear periodicity in the data stream of the article */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people who prefer not to use them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+[class*=__container] {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+body {
+  background: #eee;
+}
+
+* {
+  cursor: url("../../pages/img/cursor.png"), auto;
+}
+
+.cartModal__block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+}
+.cartModal__block .show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.cartModal__block .modal {
+  background: white;
+  width: 39rem;
+  height: 39rem;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  z-index: 99;
+}
+.cartModal__block .modal .modal-content #cartItems {
+  height: 450px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 10px;
+  gap: 20px;
+  overflow-y: auto;
+}
+.cartModal__block .modal .modal-content #cartItems .cart-item {
+  display: flex;
+  flex-direction: column;
+}
+.cartModal__block .modal .modal-content #cartItems .cart-item .cart-item__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cartModal__block .modal .modal-content #cartItems .cart-item img {
+  margin: auto;
+  width: 40%;
+}
+.cartModal__block .modal .modal-content .cartButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  padding: 10px;
+}
+.cartModal__block .modal .modal-content .cartButton .cartBtn {
+  width: 200px;
+  height: 50px;
+  background: #ffff5c;
+  transition: all 0.3s ease-in-out;
+}
+.cartModal__block .modal .modal-content .cartButton .cartBtn:hover {
+  background: #fffc00;
+  cursor: pointer;
+}
+.cartModal__block .modal .modal-content .cartButton .clearCart {
+  width: 200px;
+  height: 50px;
+  background: red;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.cartModal__block .modal .modal-content .cartButton .clearCart:hover {
+  background: rgb(197, 0, 0);
+  cursor: pointer;
+}
+
+.cart-item__price {
+  text-align: center;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.cart-item__total {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.decreaseBtn {
+  background: #ffff5c;
+  padding: 1px 5px 1px 5px;
+  border-radius: 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in;
+}
+.decreaseBtn:hover {
+  background: #fffc00;
+}
+
+.increaseBtn {
+  background: #ffff5c;
+  padding: 1px 5px 1px 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 60px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+.increaseBtn:hover {
+  background: #fffc00;
+}
+
+#cartTotal {
+  font-size: 25px;
+}
+
+/* Container for the flipping card */
+.modal__block {
+  perspective: 1000px;
+  /* Remove this if you don't want the 3D effect */
+  /* Front and back of the card */
+}
+.modal__block .modal__content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.modal__block.flip .modal__content {
+  transform: rotateY(-180deg);
+}
+.modal__block .modal__front,
+.modal__block .modal__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.modal__block .modal__front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.modal__block .modal__back {
+  transform: rotateY(180deg);
+}
+
+/* Additional styles for the cart */
+.product__cart {
+  border: 1px solid black;
+  border-radius: 30px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffff5c;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 38px, rgba(0, 0, 0, 0.22) 0px 0px 42px;
+  cursor: pointer;
+}
+.product__cart img {
+  width: 2rem;
+  transition: all 0.2s ease-in-out;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.product__cart img:hover {
+  width: 2.7rem;
+}
+
+.modal__block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
+}
+.modal__block .modal__content {
+  background: white;
+  width: 33vw;
+  height: 40vw;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  z-index: 99;
+  position: relative;
+}
+.modal__block .modal__content .modal__swipe {
+  position: absolute;
+  width: 20px;
+  right: 0;
+  bottom: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.modal__block .modal__content .modal__image {
+  height: 18vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal__block .modal__content .modal__image img {
+  width: 34%;
+}
+.modal__block .modal__content .modal__Info {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.modal__block .modal__content .modal__Info p {
+  font-size: 11px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.modal__block .modal__content .modal__Info h3 {
+  font-size: 30px;
+}
+.modal__block .modal__content .modal__Info .modal__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-top: 40px;
+}
+.modal__block .modal__content .modal__Info .modal__buttons button {
+  width: 140px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: none;
+  cursor: pointer;
+}
+.modal__block .modal__content .modal__Info .modal__buttons button:last-child {
+  background: #ffff5c;
+}
+.modal__block .modal__content .modal__InfoBack {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+.modal__block .modal__content .modal__InfoBack p {
+  font-size: 15px;
+  padding: 10px 5px 10px 5px;
+  text-align: start;
+}
+.modal__block .modal__content .modal__InfoBack .desk__bold {
+  font-size: 20px;
+  padding-right: 5px;
+}
+.modal__block .modal__content .modal__InfoBack .modal__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-top: 40px;
+}
+.modal__block .modal__content .modal__InfoBack .modal__buttons button {
+  width: 140px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: none;
+  cursor: pointer;
+}
+.modal__block .modal__content .modal__InfoBack .modal__buttons button:last-child {
+  background: #ffff5c;
+}
+
+.modal__image {
+  height: 30vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal__image img {
+  width: 40%;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal__image {
+  height: 100%;
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal__image img {
+  width: 100%;
+  height: 70%;
+}
+
+.header {
+  height: 580px;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding-top: 15px;
+}
+.header__container img {
+  width: 120px;
+}
+
+.header__menu .menu__list {
+  display: flex;
+  gap: 60px;
+}
+.header__menu .menu__list li .menu__links {
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  transition: all 0.5s ease-out;
+}
+.header__menu .menu__list li .menu__links:hover {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+
+.header__search {
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  align-items: center;
+}
+.header__search .search-icon {
+  position: absolute;
+  padding-left: 5px;
+  cursor: pointer;
+}
+.header__search .search__input {
+  width: 20em;
+  padding-left: 30px;
+  border-radius: 20px;
+  border: gray 1px solid;
+  padding: 5px 0 5px 30px;
+  background: #eee;
+  cursor: pointer;
+}
+
+.header__buttons {
+  display: flex;
+  gap: 30px;
+}
+.header__buttons .button__signIn {
+  text-decoration: none;
+  color: #362F27;
+  font-size: 18px;
+  border: #362F27 2px solid;
+  border-radius: 25px;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.header__buttons .button__signIn:hover {
+  background: #ffff5c;
+  color: black;
+}
+.header__buttons .button__signUp {
+  text-decoration: none;
+  color: #362F27;
+  font-size: 18px;
+  border: #362F27 2px solid;
+  border-radius: 25px;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.header__buttons .button__signUp:hover {
+  background: #ffff5c;
+  color: black;
+}
+
+.main__container {
+  background: #eee;
+  height: 1500px;
+  width: 100%;
+  padding-top: 30px;
+}
+
+.main__filter {
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  margin-bottom: 40px;
+}
+
+.main__filter {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+.main__filter form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.filter__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Adjust the gap as needed */
+}
+
+.filter__dropdown {
+  width: 150px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filter__dropdown:hover {
+  border-color: #888;
+}
+.filter__dropdown:focus {
+  outline: none;
+  border-color: #555;
+}
+
+label {
+  font-weight: bold;
+}
+
+.product__cards {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3em;
+  padding-bottom: 40px;
+}
+
+.product {
+  background: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  outline: 0.1rem solid #ccc;
+  outline-offset: -0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.product:hover {
+  outline: 0.2rem solid #222;
+  outline-offset: 0rem;
+}
+.product:hover img {
+  transform: scale(0.9);
+}
+.product h3 {
+  font-size: 15px;
+}
+.product img {
+  width: 7rem;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.product .price {
+  font-size: 17px;
+  font-weight: bold;
+}/*# sourceMappingURL=style.css.map */

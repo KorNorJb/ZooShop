@@ -1,0 +1,39 @@
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# === Environment files ===
+.env
+.env.local
+.env.*.local
+
+# === Build artifacts ===
+dist/
+build/
+tmp/
+temp/
+.cache/
+coverage/
+*.tsbuildinfo
+
+# === Logs ===
+logs/
+*.log
+
+# === Editor / OS files ===
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# === Backups / links ===
+*.lnk
+*.bak
+*.old
+
+# === Misc ===
+*.swp
+*.swo

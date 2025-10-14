@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ! META TAGS    -->
+    <!-- Todo Page Configuration -->
+    <!-- ? Page encoding -->
+    <meta charset="UTF-8">
+    <!-- ? Adaptability -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- ? Disabling link generation for a phone number on iOS -->
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Todo SEO -->
+    <!-- ? Description of the page -->
+    <meta name="description" content="">
+    <!-- ? Page Keywords -->
+    <meta name="keywords" content="">
+
+
+    <!-- Todo Other Information -->
+    <!-- ? Author of the page -->
+    <meta name="Author" content="Igantovskiy Dmitriy Valerievich">
+    <!-- ? Copyright -->
+    <meta name="Copyright" content="Igantovskiy Dmitriy Valerievich">
+    <!-- ? Author's address -->
+    <meta name="Address" content="Tairova 27">
+
+
+
+    <!-- !LINKS -->
+
+    <!-- ? Other -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- todo Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+
+    <!-- ? Styles -->
+    <link rel="stylesheet" href="../styles/CatalogPage/style.css">
+
+    <!-- ? Page icon -->
+    <link rel="shortcut icon" href="../pages/img/HomePage/Header/Navbar/Logo.png">
+
+    <!-- ? Page title -->
+    <title>Animals Kingdom Catalog</title>
+</head>
+
+<body>
+    <div class="cartModal__block" id="cartModalBlock">
+        <div class="modal">
+            <div class="modal-content">
+                <h2>Cart</h2>
+                <div id="cartItems"></div>
+                <div id="cartTotal"></div>
+                <div class="cartButton">
+                    <button class="checkoutBtn cartBtn">Place order</button>
+                    <button class="clearCart ">Clear cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <a class="product__cart">
+        <img src="../pages/img/cart.png" alt="" class="product__img">
+    </a>
+    <% if(data){ %>
+        <% data.forEach((products, index) => { %>
+            <div class="modal__block" id="modal-<%= index %>">
+                <div class="modal__content">
+                    <!-- Front Side -->
+                    <div class="modal__front">
+                        <img src="../pages/img/ForCards/arrow.png" alt="dfdfdf" class="modal__swipe">
+                        <div class="modal__image">
+                            <!-- The picture must have a size of 768x768 -->
+                            <img src="../pages/img/ForCards/<%= products.image_product %>" alt="">
+                        </div>
+                        <div class="modal__Info">
+                            <h2 class="modal__name">
+                                <%= products.name_product %>
+                            </h2>
+                            <p class="modal__type">
+                                <%= products.desc_product %>
+                            </p>
+                            <h3 class="modal__coast">
+                                <%= products.coast_product %> ₸</h3>
+                            <div class="modal__buttons">
+                                <button class="addToCartBtn" data-product="<%= products.name_product %>" data-price="<%= products.coast_product %>" data-image="../pages/img/ForCards/<%= products.image_product %>" data-stock="<%= products.available_product %>">
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Back Side -->
+                    <div class="modal__back">
+                        <!-- Back side content -->
+                        <img src="../pages/img/ForCards/arrow.png" alt="" class="modal__swipe">
+                        <div class="modal__InfoBack">
+                            <p>
+                                <b class="desk__bold">Description:  </b>
+                                <%= products.desc_product %>
+                            </p>
+                            <p>
+                                <b class="desk__bold"> Articul: </b>
+                                <%= products.articul_product %>
+                            </p>
+                            <p>
+                                <b class="desk__bold">Product Type:  </b>
+                                <%= products.type_product %>
+                            </p>
+
+                            <p>
+                                <b class="desk__bold">Brand:  </b>
+                                <%= products.brand_product %>
+                            </p>
+                            <p>
+                                <b class="desk__bold">Net Quantity:  </b>
+                                <%= products.netQua_product %>
+                            </p>
+                            <p>
+                                <b class="desk__bold">Weight:  </b>
+                                <%= products.weight_product %>
+                            </p>
+                            <p>
+                                <b class="desk__bold">Form:  </b>
+                                <%= products.form_product %>
+                            </p>
+                            <p>
+                                <b class="desk__bold">Breed Recommendation:  </b>
+                                <%= products.age_product %>
+                            </p>
+
+                            <p>
+                                <b class="desk__bold">Flavour:  </b>
+                                <%= products.flavour_product %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+                <% } %>
+
+
+
+
+                    <div class="header">
+                        <div class="header__container">
+                            <!-- TODO LOGO -->
+                            <a href="/" class="header__logo">
+                                <img src="../pages/img/HomePage/Header/Navbar/Logo.png" alt="">
+                            </a>
+
+                            <!-- todo Search bar -->
+                            <form action="">
+                                <div class="header__search">
+                                    <span class="search-icon material-symbols-outlined">search</span>
+                                    <input type="search" class="search__input" placeholder="Search...">
+                                </div>
+                            </form>
+                            <!-- TODO Header Buttons -->
+                            <div class="header__buttons">
+                                <% if (accessToken) { %>
+                                    <div id="profileIcon">
+                                        <a href="#"><img src="../pages/img/HomePage/Header/Navbar/user.png" alt="Profile Icon" class="profileImage" style="width: 50px; cursor: pointer;"></a>
+                                    </div>
+                                    <% } else { %>
+                                        <div class="header__buttons">
+                                            <a href="" class="button__signIn">Sign In</a>
+                                            <a href="" class="button__signUp"> Sign Up</a>
+                                        </div>
+                                        <% } %>
+                            </div>
+                        </div>
+
+                        <main>
+                            <div class="main__container">
+                                <div class="main__wrapper">
+                                    <div class="main__filter">
+                                        <form method="GET" action="/catalog">
+                                            <div class="filter__item">
+                                                <label for="productType">Type:</label>
+                                                <select id="productType" name="type_product" class="filter__dropdown" onchange="this.form.submit()">
+                                                    <option value="" <% if (!filters.type_product) { %> selected <% } %>>All</option>
+                                                    <option value="Feed" <% if (filters.type_product === 'Feed') { %> selected <% } %>>Feed</option>
+                                                    <option value="Toys" <% if (filters.type_product === 'Toys') { %> selected <% } %>>Toys</option>
+                                                    <option value="Vitamin" <% if (filters.type_product === 'Vitamin') { %> selected <% } %>>Vitamin</option>
+                                                </select>
+                                            </div>
+                                            <div class="filter__item">
+                                                <label for="age">Age:</label>
+                                                <select id="age" name="age_product" class="filter__dropdown" onchange="this.form.submit()">
+                                                    <option value="" <% if (!filters.age_product) { %> selected <% } %>>All</option>
+                                                    <option value="Junior" <% if (filters.age_product === 'Junior') { %> selected <% } %>>Junior</option>
+                                                    <option value="Adult" <% if (filters.age_product === 'Adult') { %> selected <% } %>>Adult</option>
+                                                    <option value="Senior" <% if (filters.age_product === 'Senior') { %> selected <% } %>>Senior</option>
+                                                </select>
+                                            </div>
+                                            <div class="filter__item">
+                                                <label for="flavour">Flavour:</label>
+                                                <select id="flavour" name="flavour_product" class="filter__dropdown" onchange="this.form.submit()">
+                                                    <option value="" <% if (!filters.flavour_product) { %> selected <% } %>>All</option>
+                                                    <option value="Tuna" <% if (filters.flavour_product === 'Tuna') { %> selected <% } %>>Tuna</option>
+                                                    <option value="Salmon" <% if (filters.flavour_product === 'Salmon') { %> selected <% } %>>Salmon</option>
+                                                    <option value="Mackerel" <% if (filters.flavour_product === 'Mackerel') { %> selected <% } %>>Mackerel</option>
+                                                    <option value="Chicken" <% if (filters.flavour_product === 'Chicken') { %> selected <% } %>>Chicken</option>
+                                                </select>
+                                            </div>
+                                            <div class="filter__item">
+                                                <label for="brand">Brand:</label>
+                                                <select id="brand" name="brand_product" class="filter__dropdown" onchange="this.form.submit()">
+                                                    <option value="" <% if (!filters.brand_product) { %> selected <% } %>>All</option>
+                                                    <option value="Whiskas" <% if (filters.brand_product === 'Whiskas') { %> selected <% } %>>Whiskas</option>
+                                                    <option value="BrandB" <% if (filters.brand_product === 'BrandB') { %> selected <% } %>>Brand B</option>
+                                                    <option value="BrandC" <% if (filters.brand_product === 'BrandC') { %> selected <% } %>>Brand C</option>
+                                                </select>
+                                            </div>
+                                            <div class="filter__item">
+                                                <label for="form">Form:</label>
+                                                <select id="form" name="form_product" class="filter__dropdown" onchange="this.form.submit()">
+                                                    <option value="" <% if (!filters.form_product) { %> selected <% } %>>All</option>
+                                                    <option value="Dry food" <% if (filters.form_product === 'Dry food') { %> selected <% } %>>Dry</option>
+                                                    <option value="Wet food" <% if (filters.form_product === 'Wet food') { %> selected <% } %>>Wet</option>
+                                                    <!-- <option value="Liquid" <% if (filters.form_product === 'Liquid') { %> selected <% } %>>Liquid</option> -->
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="main__cards">
+                                        <div class="product__cards">
+
+
+
+                                            <% if(data){ %>
+                                                <% data.forEach((products, index) => { %>
+                                                    <div class="product" data-index="<%= index %>">
+                                                        <img src="../pages/img/ForCards/<%= products.image_product %>" alt="">
+                                                        <h3>
+                                                            <%= products.name_product %>
+                                                        </h3>
+                                                        <div class="price">
+                                                            <%= products.coast_product %> ₸</div>
+                                                    </div>
+                                                    <% }) %>
+                                                        <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+
+                        <!-- 
+        <% if(data){%>
+            <% data.forEach(products=>{%>
+                <div class="popular__card">
+                    <div class="popular__image"><img src="../../pages/img/ForCards/<%= products.image_product%>" alt="DA"></div>
+                    <div class="popular__info">
+                        <h2>
+                            <%= products.name_product%>
+                        </h2>
+                        <p class="desc">
+                            <%= products.desc_product%>
+                        </p>
+                        <p class="coast">
+                            <%= products.coast_product%> т
+                        </p>
+                    </div>
+                    <div class="popular__add"><button>Add to card</button></div>
+                </div>
+                <%})%>
+                    <%}%> -->
+
+
+
+
+
+
+
+                        <script src="../scripts/catalog.js"></script>
+</body>
+
+</html>
